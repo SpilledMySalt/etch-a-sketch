@@ -1,0 +1,8 @@
+* {
+    border: 1;
+    border-color: red; /*Test. remove!*/
+}
+
+.box {
+    display: flex;
+}
