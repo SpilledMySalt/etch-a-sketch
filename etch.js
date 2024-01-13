@@ -1,17 +1,38 @@
-function createGrid(num){
+// Creates a row for the boxes
+function createRow(num){
+    for (let i = 0; i < num; i++){
+        const div = document.createElement("div");
+        div.className = "boxRow";
+        div.style.display = "flex";
+        div.style.flexDirection = "column";
+        div.style.border = "10px";
+        div.style.backgroundColor = "black";
+        div.style.margin = "2px";
+        document.getElementById("container").appendChild(div);
+
+        // Calling function and adding horizontal boxes
+        createBox(num);
+    }
+}
+
+// Creates boxes
+function createBox(num){
+
     for (let i = 0; i < num; i++){
         const div = document.createElement("div");
         div.className = "box";
         div.style.display = "flex";
-        div.style.borer = "1px";
-        div.style.borderColor = "red";
-        div.style.minWidth = "10px";
-        div.style.minHeight = "10px";
+        div.style.flexDirection = "row";
+        div.style.backgroundColor = "pink";
+        div.style.margin = "2px";
 
-        document.getElementById("container").appendChild(div);
+        document.querySelectorAll("boxRow").appendChild(div);
     }
+
+    // Add num boxes to the row
+
 }
 
 // Initialize values and run functions
 let num = 16;
-createGrid(num);
+createRow(num);
