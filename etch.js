@@ -5,8 +5,8 @@ function createRow(num){
         div.className = "boxRow";
         div.style.display = "flex";
         div.style.justifyContent = "center";
-        div.style.border = "10px";
-        div.style.backgroundColor = "black";
+        //div.style.border = "10px";
+        //div.style.backgroundColor = "black";
         div.style.margin = "2px";
         document.getElementById("container").appendChild(div);
 
@@ -22,16 +22,27 @@ function createBox(num){
         const div = document.createElement("div");
         div.className = "box";
         div.style.display = "flex";
+        div.style.minWidth = "20px";
+        div.style.minHeight = "20px";
         div.style.flexDirection = "row";
         div.style.backgroundColor = "pink";
         div.style.margin = "2px";
+
+        // Give it event listener
+        div.addEventListener("mouseout", changeColor);
 
         // Use last child to select last created element of class
         document.querySelector(".boxRow:last-child").appendChild(div);
     }
 
-    // Add num boxes to the row
+}
 
+function changeColor(div){
+    console.log("Mouse enters...");
+
+    // Not to self, .target is important here because it specifies the specific div last selected
+    div.target.style.backgroundColor = "black";
+    return false;
 }
 
 // Initialize values and run functions
